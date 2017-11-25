@@ -1,6 +1,8 @@
 package com.arifinmnur.VegetaApp;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -9,6 +11,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 
 
@@ -31,6 +36,16 @@ public class AboutFragment extends Fragment {
 
 
         initCollapsingToolbar();
+
+        TextView tv=(TextView) rootView.findViewById(R.id.gh_link);
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/arifinmnur/VegetaApp"));
+                Intent choose  = Intent.createChooser(browserIntent, "Open with");
+                startActivity(choose);
+            }
+        });
         
         try {
            Glide.with(this).load(R.drawable.sayurandanbuah).into((ImageView) rootView.findViewById(R.id.backdrop));

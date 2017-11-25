@@ -47,8 +47,8 @@ public class SimpleFragmentAdapter extends FragmentPagerAdapter {
 
 
         switch (position) {
-            case 0:return new BlankFragment();
-            case 1:return new BlankFragment();
+            case 0:return new HomeFragment();
+            case 1:return new OrderFragment();
             case 2:return new SayurandanBuahFragment();
             case 3:return new AboutFragment();
         }
